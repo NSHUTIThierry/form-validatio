@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORM VALIDATION</title>
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: fit-content;
+        }
+        form {
+            background: skyblue;
+            padding: 30px;
+            width: 300px;
+        }
+        form lebel {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        form input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: #f2f2f2;
+            border-radius: 5px;
+        }
+        button {
+            width: 100px;
+            padding: 10px;
+            background-color: #f2f2f2;
+            color: aqua;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+
+        }
+    
+    </style>
+</head>
+<body>
+    <form id="my form">
+        <label for="name">NAME:</label>
+        <INput type="text" id="name" name="name" required><br><br>
+            <lebel for="email" >Email:</lebel>
+            <input type="text" id="email" name="email" placeholder="email" required><br><br>
+            <label for="Address">Address:</label> 
+            <input type="text" id="Address" name="Address" placeholder="Address"><br><br>
+            <button type="submit" >insert</button>
+    </form>
+    <script>
+        document.getElementById("my form").addEventListener('submit', function(event){
+            const inputs= this.querySelectorAll('input[type="text"][required]');
+            for (let input of inputs) {
+                if (input.value.trim()===''){
+                    alert('Please you have to fill all requirements in field.');
+                    event.preventDefault();
+                    return; // return after the first empty field found
+                                    }
+            }
+        });
+    </script>
+    
+</body>
+</html>
